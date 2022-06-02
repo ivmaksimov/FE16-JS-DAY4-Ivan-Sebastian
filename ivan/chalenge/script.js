@@ -13,15 +13,21 @@ var player2 = prompt("Enter Player 2");
 document.getElementById("player1").innerHTML = player1;
 document.getElementById("player2").innerHTML = player2;
 player1 = document.getElementById("player1");
-player2 = document.getElementById("player2")
+player2 = document.getElementById("player2");
 
-var msg = document.getElementById("msg");
-var res = document.getElementById("reset");
+var message = document.getElementById("msg");
+var newGame = document.getElementById("reset");
 var dice1 = document.getElementById("dice1");
 var dice2 = document.getElementById("dice2");
 var roll1 = document.getElementById("roll1");
 var roll2 = document.getElementById("roll2");
 roll1.style.display = "inline-block";
+var resultp1 = document.getElementById("countp1");
+var resultp2 = document.getElementById("countp2");
+var player2count = document.getElementById("player2count");
+var player1count = document.getElementById("player1count");
+player1count.innerText = player1.innerHTML;
+player2count.innerText = player2.innerHTML;
 
 function roll(player) {
     var dice = Math.floor(Math.random() * 6) + 1;
@@ -37,7 +43,7 @@ function roll(player) {
         dice2.title = dice;
         dice2.src = path;
         check();
-        res.style.display = "block";
+        newGame.style.display = "block";
         roll2.style.display = "none";
         
     }
@@ -45,30 +51,34 @@ function roll(player) {
 
 function check() {
     if (dice1.title > dice2.title) {
-        msg.innerHTML = `${player1.innerText} is the winner`;
+        message.innerHTML = `${player1.innerText} is the winner`;
         player1.style.color = "green";
         player2.style.color = "red";
+        resultp1.innerHTML += `<p>WINER</p>`;
     } else if (dice1.title < dice2.title) {
-        msg.innerHTML = `${player2.innerText} is the winner`;
+        message.innerHTML = `${player2.innerText} is the winner`;
         player1.style.color = "red";
         player2.style.color = "green";
+        resultp2.innerHTML += `<p>WINER</p>`;
     } else {
-        msg.innerHTML = "It's a draw!";
+        message.innerHTML = "It's a draw!";
         player1.style.color = "blue";
         player2.style.color = "blue";
     }
+    
 }
 
 function reset() {
     dice1.src = "pics/blank.png";
     dice2.src = "pics/blank.png";
-    res.style.display = "none";
+    newGame.style.display = "none";
     roll1.style.display = "inline-block";
-    msg.innerHTML = "";
+    message.innerHTML = "";
     player1.style.color = "black";
     player2.style.color = "black";
+    
 }
 
 roll1.addEventListener("click", () => roll("dice1"));
 roll2.addEventListener("click", () => roll("dice2"));
-res.addEventListener("click", () => reset());
+newGame.addEventListener("click", () => reset());

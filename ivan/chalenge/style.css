@@ -2,24 +2,41 @@
 
 body {
   display: flex;
+  background-color: green;
+}
+
+.container{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  
+}
+
+.game{
+  display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  background-color: green;
+  width: 60%;
+}
+
+.side {
+  width: 10%;
+  text-align: center;
 }
 
 .names{
   border: 5px solid brown;
   border-radius: 20px;
   background-color: burlywood;
-  width: 50%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
 }
 .field {
   /* background-color: white; */
-  width: 50%;
-  height: 500px;
+  width: 80%;
+  height: 450px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -33,6 +50,7 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: space-around;
 }
 #msg,
 #reset {
@@ -67,4 +85,82 @@ margin: 10px;
 img{
   width: 50%;
   
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399.999px) {
+  .field {
+    height: 350px;
+  }
+}
+
+@media screen and  (min-width: 992px) and (max-width: 1199.999px) {
+  .field{
+    height: 310px;
+  }
+  
+}
+
+@media screen and (min-width: 768px) and (max-width: 991.999px) {
+  .field {
+    height: 260px;
+  }
+
+  #countp2,
+  #countp1 {
+    font-size: 16px;
+  }
+
+  #player1count,
+  #player2count {
+    font-size: 22px;
+  }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.999px) {
+  .field {
+    height: 280px;
+  }
+  .game {
+    width: 79%;
+  }
+  #countp2, #countp1 {
+    font-size: 16px;
+  }
+
+  #player1count,
+  #player2count {
+    font-size: 22px;
+  }
+
+  
+
+}
+
+@media screen and  (max-width: 575.999px) {
+  .field {
+    height: 230px;
+  }
+
+  .game {
+    width: 78%;
+  }
+
+  #countp2,
+  #countp1 {
+    font-size: 12px;
+  }
+
+  header{
+    font-size: 16px;
+  }
+
+  .names{
+    font-size: 14px;
+  }
+
+  #player1count, #player2count{
+    font-size: 14px;
+  }
+
 }
